@@ -49,105 +49,11 @@ public class SerialCom {
             if ((i2 & i) != 0) {
                 try {
 
-
                     if (mMySerialLib.getInputStream() != null) {
 
                         String readresponse;
                         readresponse = isToString(mMySerialLib.getInputStream());
                         System.out.println("Barla " + readresponse);
-
-//                        String command = "";
-//                        command = generatecommand(boardname, thisport.getSerial_port(), thisport.itemqty);
-//                        sendSerialPort(command);
-//                        Thread.sleep(5000);
-
-//
-//                        Collections.sort(cartListModels);
-//
-//
-//                        ArrayList<String> reqproductid = new ArrayList<>();
-//                        ArrayList<String> resproductid = new ArrayList<>();
-//                        ArrayList<String> reqorderid = new ArrayList<>();
-//                        ArrayList<String> sttus = new ArrayList<>();
-//
-//                        for (CartListModel thisport : cartListModels) {
-//
-//                            String boardname = "mainboard";
-//
-//                            //host send to equipment
-//                            if (thisport.getTemp() == 1) {
-//                                boardname = "mainboard";
-//
-//                                quantity = thisport.itemqty;
-//                                command = generatecommand(boardname, thisport.getSerial_port(), thisport.itemqty);
-//                                System.out.println("Delivery Request parameter is = " + command);
-//                                reqproductid.add(command.split(",")[3]);
-//                                reqorderid.add(thisport.getSerial_port());
-//                                sendSerialPort(command);
-//                                Thread.sleep(5000);
-//
-//                            } else {
-//                                boardname = "viceboard";
-//                                quantity = thisport.itemqty;
-//                                command = generatecommand(boardname, thisport.getSerial_port(), thisport.itemqty);
-//                                reqproductid.add(command.split(",")[3]);
-//                                reqorderid.add(thisport.getSerial_port());
-//                                sendSerialPort(command);
-//                                Thread.sleep(5000);
-//                            }
-//
-//                            // Thread.sleep(3000);
-//
-//                        }
-//                        String readresponse;
-//                        readresponse = isToString(mMySerialLib.getInputStream());
-//                        System.out.println("Delivery request response is = " + readresponse);
-
-//
-//                        String status = null;
-//                        String orderId;
-//                        String qty;
-//
-//
-//                        String[] myarray = readresponse.split("\\[");
-//
-//                        for (String thisone : myarray) {
-//
-//                            thisone = thisone.replace("]", "");
-//                            if (thisone.contains("board")) {
-//                                status = thisone.split(",")[4];
-//                                orderId = thisone.split(",")[3];
-//                                if (reqproductid.contains(orderId)) {
-//                                    resproductid.add(orderId);
-//                                    sttus.add(status);
-//
-//                                    qty = quantity;// readresponse.split(",")[2];
-//                                    command = generatedeliverycommand("request", status, qty, orderId);
-//                                    System.out.println("Delivery confirmation request parameter is = " + command);
-//                                    sendSerialPort(command);
-//                                }
-//
-//                            }
-//
-//                        }
-//                        Thread.sleep(3000);
-
-                        //importantline
-//                        for (int j = 0; j < resproductid.size(); j++) {
-//                            System.out.println("product id " + reqorderid.get(resproductid.indexOf(resproductid.get(j))) + " is dispensed by status " + sttus.get(j));
-//                            allstatus += reqorderid.get(resproductid.indexOf(resproductid.get(j))) + ":" + sttus.get(j) + ",";
-//                        }
-//
-//                        System.out.println("product status" + allstatus);
-//
-//                        mcont.runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                // Update Tansaction here
-//                                // mcont.updatetransactiondb(finalStatus);
-//                            }
-//                        });
-
 
                     }
 
@@ -201,39 +107,6 @@ public class SerialCom {
         return command.toString();
 
 
-//        char[] chars = "abcdefghijklmnopqrstuvwxyz1234567890".toCharArray();
-//        StringBuilder sb = new StringBuilder(20);
-//        Random random = new Random();
-//        for (int i = 0; i < 8; i++) {
-//            char c = chars[random.nextInt(chars.length)];
-//            sb.append(c);
-//        }
-//        String output = sb.toString();
-//        String orderid = output;
-//
-//        String fpart = "," + orderid + "," + position + "," + qty;
-//
-//        String crccc = fpart;
-//
-//        crc17 crcclas = new crc17();
-//        String finalCRC = ByteUtils.bytesToHexString(crcclas.computeCrcB(crccc.getBytes())).toLowerCase();
-//
-//        fpart = "," + finalCRC + fpart;
-//        StringBuilder bool = new StringBuilder();
-//        ;
-//        try {
-//            //bool.append("[viceboard,");
-//            bool.append("[" + boardname + ",");
-//            bool.append(fpart.length());
-//            //oid,aile,qty
-//
-//            bool.append(fpart);
-//            bool.append("]");
-//            //  sendSerialPort(bool.toString());
-//        } catch (Exception i2) {
-//            Log.i("test", i2.toString());
-//        }
-//        return bool.toString();
     }
 
     String generatedeliverycommand(String boardname, String status, String qty, String oid) {
